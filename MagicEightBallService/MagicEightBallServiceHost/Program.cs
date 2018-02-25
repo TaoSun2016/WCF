@@ -16,9 +16,22 @@ namespace MagicEightBallServiceHost
             using (ServiceHost host = new ServiceHost(typeof(MagicEightBallService.MagicEightBallService)))
             {
                 host.Open();
+                DisplayHostInfo(host);
+
                 Console.WriteLine("The service is ready.");
                 Console.WriteLine("Press the Enter key to terminate service.");
                 Console.ReadLine();
+            }
+        }
+
+        static void DisplayHostInfo(ServiceHost host)
+        {
+            Console.WriteLine("Host infor:");
+            foreach (System.ServiceModel.Description.ServiceEndpoint se in host.Description.Endpoints)
+            {
+                Console.WriteLine($"address = {se.Address}");
+                Console.WriteLine($"binding = {se.Binding.Name}");
+                Console.WriteLine($"contract = {se.Contract.Name}");
             }
         }
     }
