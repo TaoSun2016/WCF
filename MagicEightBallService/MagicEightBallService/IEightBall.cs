@@ -7,7 +7,7 @@ using System.ServiceModel;
 
 namespace MagicEightBallService
 {
-    [ServiceContract]
+    [ServiceContract(Namespace = "http://MyCompany.com")]
     public interface IEightBall
     {
         [OperationContract]
