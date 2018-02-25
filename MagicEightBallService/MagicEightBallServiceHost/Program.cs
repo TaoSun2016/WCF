@@ -12,6 +12,14 @@ namespace MagicEightBallServiceHost
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("***** Console Based WCF Host * ****");
+            using (ServiceHost host = new ServiceHost(typeof(MagicEightBallService.MagicEightBallService)))
+            {
+                host.Open();
+                Console.WriteLine("The service is ready.");
+                Console.WriteLine("Press the Enter key to terminate service.");
+                Console.ReadLine();
+            }
         }
     }
 }
