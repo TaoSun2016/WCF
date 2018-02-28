@@ -40,6 +40,7 @@
             // serviceInstaller1
             // 
             this.serviceInstaller1.Description = "This is the math service";
+            this.serviceInstaller1.DisplayName = "MathService";
             this.serviceInstaller1.ServiceName = "MathService";
             this.serviceInstaller1.StartType = System.ServiceProcess.ServiceStartMode.Automatic;
             // 

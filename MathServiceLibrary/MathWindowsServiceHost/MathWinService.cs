@@ -27,11 +27,13 @@ namespace MathWindowsServiceHost
                 myHost.Close();
                 myHost = null;
             }
-            myHost = new ServiceHost(typeof(MathService));
-            Uri address = new  Uri("http://localhost:8080/MathServiceLibrary");
-            WSHttpBinding binding = new   WSHttpBinding();
-            Type contract = typeof(IBasicMath);
-            myHost.AddServiceEndpoint(contract,binding, address);
+
+            // Create the host and specify a URL for an HTTP binding.
+            myHost = new ServiceHost(typeof(MathService), 
+                new Uri("http://localhost:8080/MathServiceLibrary"));
+            myHost.AddDefaultEndpoints();
+
+            // Open the host.
             myHost.Open();
         }
 
